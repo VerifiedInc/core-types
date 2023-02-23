@@ -1,6 +1,12 @@
 /**
- * Interface to encapsulate Tokenized data
+ * Type to encapsulate Tokenized data
  */
-export interface TokenData {
-    value: string; // Note: all tokenized data ought to be serialized to string format
+export type TokenData = string;
+
+/**
+ * Interface to encapsulate Tokenized data DTO
+ */
+export interface TokenDto {
+    value: TokenData;
+    uuid: string;
 }
