@@ -138,6 +138,16 @@ export interface CredentialDto {
   issuer: string; // brand uuid
 }
 
+/**
+ * Options for creating a Presentation
+ */
+export interface PresentationOptions {
+  userUuid: string;
+  brandUuid: string;
+  credentialIds: string[];
+  presentationRequestUuid: string;
+  expirationDate?: string | null; // unix timestamp
+}
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER SERVICE *
