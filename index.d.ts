@@ -1,19 +1,21 @@
-/***********************************
- *       CORE SERVICE TYPES        *
- * DTOS, ETC FROM THE CORE SERVICE *
- ***********************************/
-
-/**
- * Interface to encapsulate Tokenized data
- */
-export interface TokenData {
-    value: string; // Note: all tokenized data ought to be serialized to string format
-}
-
 /****************************************
  *         DATA RESOLVER TYPES          *
  * TYPES FROM THE DATA RESOLVER SERVICE *
  ****************************************/
+export type TokenData = string;
+
+/**
+ * Interface to encapsulate Tokenized data DTO
+ */
+export interface TokenDto {
+    value: TokenData;
+    uuid: string;
+}
+
+/***********************************
+ *       CORE SERVICE TYPES        *
+ * DTOS, ETC FROM THE CORE SERVICE *
+ ***********************************/
 
 /**
  * Options for creating a VerificationCode
