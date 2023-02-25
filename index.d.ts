@@ -144,8 +144,8 @@ export interface CredentialDto {
  * Options for creating a Presentation
  */
 export interface PresentationOptions {
-  userUuid: string;
-  brandUuid: string;
+  // userUuid will be inferred from the auth token
+  // brandUuid will be inferred from the presentationRequest
   credentialIds: string[];
   presentationRequestUuid: string;
   expirationDate?: string | null; // unix timestamp
