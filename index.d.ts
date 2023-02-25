@@ -150,6 +150,24 @@ export interface PresentationOptions {
   presentationRequestUuid: string;
   expirationDate?: string | null; // unix timestamp
 }
+
+/**
+ * The presentation object returned from the core service
+ */
+export interface PresentationDto {
+  uuid: string;
+  createdAt: string; // unix timestamp
+  updatedAt: string; // unix timestamp
+  userUuid: string;
+  brandUuid: string;
+  presentationRequestUuid: string;
+  credentialIds: string[];
+  expirationDate: string | null; // unix timestamp
+  brand: BrandDto;
+  user: UserDto;
+  presentationRequest: PresentationRequestDto;
+  credentials: CredentialDto[];
+}
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER SERVICE *
