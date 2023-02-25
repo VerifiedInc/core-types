@@ -144,11 +144,29 @@ export interface CredentialDto {
  * Options for creating a Presentation
  */
 export interface PresentationOptions {
-  userUuid: string;
-  brandUuid: string;
+  // userUuid will be inferred from the auth token
+  // brandUuid will be inferred from the presentationRequest
   credentialIds: string[];
   presentationRequestUuid: string;
   expirationDate?: string | null; // unix timestamp
+}
+
+/**
+ * The presentation object returned from the core service
+ */
+export interface PresentationDto {
+  uuid: string;
+  createdAt: string; // unix timestamp
+  updatedAt: string; // unix timestamp
+  userUuid: string;
+  brandUuid: string;
+  presentationRequestUuid: string;
+  credentialIds: string[];
+  expirationDate: string | null; // unix timestamp
+  brand: BrandDto;
+  user: UserDto;
+  presentationRequest: PresentationRequestDto;
+  credentials: CredentialDto[];
 }
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
