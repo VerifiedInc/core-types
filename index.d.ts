@@ -185,7 +185,7 @@ export type ReceiptData = CredentialCreatedReceiptData |
 /**
  * The Receipt object returned from the core service
  */
-export interface ReceiptDto<T> {
+export interface ReceiptDto<ReceiptData> {
   uuid: string;
   createdAt: string; // unix timestamp
   updatedAt: string; // unix timestamp
