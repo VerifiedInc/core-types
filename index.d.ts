@@ -177,7 +177,7 @@ export type ReceiptType = 'CredentialCreated' |
   'CredentialStatusUpdated'
 
 export type ReceiptData = CredentialCreatedReceiptData |
-  PresentationRequestCreatedData |
+  PresentationRequestCreatedReceiptData |
   PresentationCreatedReceiptData |
   PresentationCreatedReceiptData |
   PresentationSharedReceiptData
@@ -211,7 +211,7 @@ export interface CredentialCreatedReceiptData {
 /**
  * Interface to encapsulate a PresentationRequestCreated receipt data
  */
-export interface PresentationRequestCreatedData {
+export interface PresentationRequestCreatedReceiptData {
   match: boolean;
   requestId: string;
 }
