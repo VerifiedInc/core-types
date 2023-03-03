@@ -179,6 +179,7 @@ export type ReceiptType = 'CredentialCreated' |
 export type ReceiptData = CredentialCreatedReceiptData |
   PresentationRequestCreatedData |
   PresentationCreatedReceiptData |
+  PresentationCreatedReceiptData |
   PresentationSharedReceiptData
 
 /**
