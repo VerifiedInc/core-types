@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@unumid/eslint-config"
+  ],
+  "rules": {
+    "space-before-function-paren": "off",
+    // these two rules are set the same in the @unumid/eslint-config, but for some reason they're not working here
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
+    // sometimes conflicts with prettier
+    "brace-style": "off"
+  }
+}
