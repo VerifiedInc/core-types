@@ -216,6 +216,14 @@ export interface PresentationRequestCreatedData {
 }
 
 /**
+ * Interface to encapsulate a PresentationRequestShared receipt data
+ */
+export interface PresentationRequestSharedReceiptData {
+  id: string;
+  uuid: string;
+}
+
+/**
  * Interface to encapsulate a PresentationCreated receipt data
  */
 export interface PresentationCreatedReceiptData {
