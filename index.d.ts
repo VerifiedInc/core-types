@@ -170,44 +170,84 @@ export interface PresentationDto {
 }
 
 export type ReceiptType = 'CredentialCreated' | 
-    'PresentationRequestCreated' | 
-    'PresentationRequestShared' | 
-    'PresentationCreated' | 
-    'PresentationShared' | 
-    'CredentialStatusUpdated'
+  'PresentationRequestCreated' | 
+  'PresentationRequestShared' | 
+  'PresentationCreated' | 
+  'PresentationShared' | 
+  'CredentialStatusUpdated'
+
+export type ReceiptData = CredentialCreatedReceiptData |
+  PresentationRequestCreatedData |
+  PresentationCreatedReceiptData |
+  PresentationSharedReceiptData
 
 /**
  * The Receipt object returned from the core service
  */
 export interface ReceiptDto<T> {
-    uuid: string;
-    createdAt: string; // unix timestamp
-    updatedAt: string; // unix timestamp
-    type: ReceiptType,
-    userUuid: string;
-    brandUuid: string;
-    data: T
+  uuid: string;
+  createdAt: string; // unix timestamp
+  updatedAt: string; // unix timestamp
+  type: ReceiptType,
+  userUuid: string;
+  brandUuid: string;
+  data: ReceiptData;
 }
 
 /**
  * Interface to encapsulate a CredentialCreated receipt data
  */
-export interface PresentationSharedReceiptData {
-    uuid: string;
-    credentials: {
-        /**
-         * persisting both in case of future versioning and the exact credential uuid is needed.
-         * however, the id is what is really used int the wallet and throughout referencing credentials
-         */
-        uuid: string; // credential uuid
-        id: string; // credential id
-        type: string;
-        issuer: string;
-    }[];
+export interface CredentialCreatedReceiptData {
+  /**
+   * persisting both in case of future versioning and the exact credential uuid is needed.
+   * however, the id is what is really used int the wallet and throughout referencing credentials
+   */
+  credentialUuid: string; // credential uuid
+  credentialId: string; // credential id
+  credentialType: string;
 }
 
-export interface CredentialCreatedReceiptData {
+/**
+ * Interface to encapsulate a PresentationRequestCreated receipt data
+ */
+export interface PresentationRequestCreatedData {
+  match: boolean;
+  requestId: string;
+}
 
+/**
+ * Interface to encapsulate a PresentationCreated receipt data
+ */
+export interface PresentationCreatedReceiptData {
+  uuid: string;
+  presentationRequestUuid: string;
+  credentials: {
+      /**
+       * persisting both in case of future versioning and the exact credential uuid is needed.
+       * however, the id is what is really used int the wallet and throughout referencing credentials
+       */
+      uuid: string; // credential uuid
+      id: string; // credential id
+      type: string;
+      issuer: string;
+  }[];
+}
+
+/**
+ * Interface to encapsulate a PresentationShared receipt data
+ */
+export interface PresentationSharedReceiptData {
+  uuid: string;
+  credentials: {
+      /**
+       * persisting both in case of future versioning and the exact credential uuid is needed.
+       * however, the id is what is really used int the wallet and throughout referencing credentials
+       */
+      uuid: string; // credential uuid
+      id: string; // credential id
+      type: string;
+      issuer: string;
+  }[];
 }
 
 /******************************************
