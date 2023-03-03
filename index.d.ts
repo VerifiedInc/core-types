@@ -201,7 +201,7 @@ export interface ReceiptDto<T> {
 export interface CredentialCreatedReceiptData {
   /**
    * persisting both in case of future versioning and the exact credential uuid is needed.
-   * however, the id is what is really used int the wallet and throughout referencing credentials
+   * however, the id is what is really used in the wallet and throughout referencing credentials
    */
   credentialUuid: string; // credential uuid
   credentialId: string; // credential id
