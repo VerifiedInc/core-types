@@ -168,6 +168,48 @@ export interface PresentationDto {
   presentationRequest: PresentationRequestDto;
   credentials: CredentialDto[];
 }
+
+export type ReceiptType = 'CredentialCreated' | 
+    'PresentationRequestCreated' | 
+    'PresentationRequestShared' | 
+    'PresentationCreated' | 
+    'PresentationShared' | 
+    'CredentialStatusUpdated'
+
+/**
+ * The Receipt object returned from the core service
+ */
+export interface ReceiptDto<T> {
+    uuid: string;
+    createdAt: string; // unix timestamp
+    updatedAt: string; // unix timestamp
+    type: ReceiptType,
+    userUuid: string;
+    brandUuid: string;
+    data: T
+}
+
+/**
+ * Interface to encapsulate a CredentialCreated receipt data
+ */
+export interface PresentationSharedReceiptData {
+    uuid: string;
+    credentials: {
+        /**
+         * persisting both in case of future versioning and the exact credential uuid is needed.
+         * however, the id is what is really used int the wallet and throughout referencing credentials
+         */
+        uuid: string; // credential uuid
+        id: string; // credential id
+        type: string;
+        issuer: string;
+    }[];
+}
+
+export interface CredentialCreatedReceiptData {
+
+}
+
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER SERVICE *
