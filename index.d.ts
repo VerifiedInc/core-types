@@ -212,7 +212,6 @@ export interface ReceiptDto<ReceiptData> {
  * Interface to encapsulate a CredentialCreated receipt data
  */
 export interface CredentialCreatedReceiptData {
-  type: ReceiptTypeEnum.CredentialCreated,
   /**
    * persisting both in case of future versioning and the exact credential uuid is needed.
    * however, the id is what is really used in the wallet and throughout referencing credentials
@@ -226,7 +225,6 @@ export interface CredentialCreatedReceiptData {
  * Interface to encapsulate a PresentationRequestCreated receipt data
  */
 export interface PresentationRequestCreatedReceiptData {
-  type: ReceiptTypeEnum.PresentationRequestCreated,
   match: boolean;
   requestId: string;
 }
@@ -235,7 +233,6 @@ export interface PresentationRequestCreatedReceiptData {
  * Interface to encapsulate a PresentationRequestShared receipt data
  */
 export interface PresentationRequestSharedReceiptData {
-  type: ReceiptTypeEnum.PresentationRequestShared,
   id: string;
   uuid: string;
 }
@@ -244,7 +241,6 @@ export interface PresentationRequestSharedReceiptData {
  * Interface to encapsulate a PresentationCreated receipt data
  */
 export interface PresentationCreatedReceiptData {
-  type: ReceiptTypeEnum.PresentationCreated,
   uuid: string;
   presentationRequestUuid: string;
   credentials: {
@@ -263,7 +259,6 @@ export interface PresentationCreatedReceiptData {
  * Interface to encapsulate a PresentationShared receipt data
  */
 export interface PresentationSharedReceiptData {
-  type: ReceiptTypeEnum.PresentationShared,
   uuid: string;
   credentials: {
       /**
