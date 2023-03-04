@@ -215,7 +215,7 @@ export interface ReceiptDto<ReceiptData> {
   uuid: string;
   createdAt: string; // ms since epoch, unix timestamp
   updatedAt: string; // ms since epoch, unix timestamp
-  type: ReceiptTypeEnum,
+  type: ReceiptTypeEnum2,
   userUuid: string;
   brandUuid: string;
   data: ReceiptData;
