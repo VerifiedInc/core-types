@@ -80,8 +80,8 @@ export interface CredentialRequestDto {
  */
 export interface CustomerDto {
   uuid: string;
-  createdAt: string; // unix timestamp
-  updatedAt: string; // unix timestamp
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
   name: string;
 }
 
@@ -90,8 +90,8 @@ export interface CustomerDto {
  */
 export interface BrandDto {
   uuid: string;
-  createdAt: string; // unix timestamp
-  updatedAt: string; // unix timestamp
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
   issuerName: string;
   receiverName: string;
   cardImageUrl: string;
@@ -104,10 +104,10 @@ export interface BrandDto {
 export interface PresentationRequestDto {
   uuid: string;
   id: string;
-  createdAt: string; // unix timestamp
-  updatedAt: string; // unix timestamp
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
   credentialRequests: CredentialRequestDto[];
-  expirationDate: string | null; // unix timestamp
+  expirationDate: string | null; // ms since epoch, unix timestamp
   requestingBrand: BrandDto;
   issuingBrands: BrandDto[];
   user: UserDto;
@@ -119,9 +119,9 @@ export interface PresentationRequestDto {
 export interface PresentationRequestMetadataDto {
   uuid: string;
   id: string;
-  createdAt: string; // unix timestamp
-  updatedAt: string; // unix timestamp
-  expirationDate: string | null; // unix timestamp
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
+  expirationDate: string | null; // ms since epoch, unix timestamp
   requestingBrand: BrandDto;
   issuingBrands: BrandDto[];
 }
@@ -131,11 +131,11 @@ export interface PresentationRequestMetadataDto {
  */
 export interface CredentialDto {
   id: string;
-  createdAt: string; // unix timestamp
-  updatedAt: string; // unix timestamp
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
   type: string;
-  issuanceDate: string; // unix timestamp
-  expirationDate: string | null; // unix timestamp
+  issuanceDate: string; // ms since epoch, unix timestamp
+  expirationDate: string | null; // ms since epoch, unix timestamp
   data: Record<string, any>;
   issuer: string; // brand uuid
 }
@@ -148,7 +148,7 @@ export interface PresentationOptions {
   // brandUuid will be inferred from the presentationRequest
   credentialIds: string[];
   presentationRequestUuid: string;
-  expirationDate?: string | null; // unix timestamp
+  expirationDate?: string | null; // ms since epoch, unix timestamp
 }
 
 /**
@@ -156,18 +156,109 @@ export interface PresentationOptions {
  */
 export interface PresentationDto {
   uuid: string;
-  createdAt: string; // unix timestamp
-  updatedAt: string; // unix timestamp
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
   userUuid: string;
   brandUuid: string;
   presentationRequestUuid: string;
   credentialIds: string[];
-  expirationDate: string | null; // unix timestamp
+  expirationDate: string | null; // ms since epoch, unix timestamp
   brand: BrandDto;
   user: UserDto;
   presentationRequest: PresentationRequestDto;
   credentials: CredentialDto[];
 }
+
+export type ReceiptType = 'CredentialCreated' | 
+  'PresentationRequestCreated' | 
+  'PresentationRequestShared' | 
+  'PresentationCreated' | 
+  'PresentationShared' | 
+  'CredentialStatusUpdated'
+
+export type ReceiptData = CredentialCreatedReceiptData |
+  PresentationRequestCreatedReceiptData |
+  PresentationCreatedReceiptData |
+  PresentationCreatedReceiptData |
+  PresentationSharedReceiptData
+
+/**
+ * The Receipt object returned from the core service
+ */
+export interface ReceiptDto<ReceiptData> {
+  uuid: string;
+  createdAt: string; // ms since epoch, unix timestamp
+  updatedAt: string; // ms since epoch, unix timestamp
+  type: ReceiptType,
+  userUuid: string;
+  brandUuid: string;
+  data: ReceiptData;
+}
+
+/**
+ * Interface to encapsulate a CredentialCreated receipt data
+ */
+export interface CredentialCreatedReceiptData {
+  /**
+   * persisting both in case of future versioning and the exact credential uuid is needed.
+   * however, the id is what is really used in the wallet and throughout referencing credentials
+   */
+  credentialUuid: string; // credential uuid
+  credentialId: string; // credential id
+  credentialType: string;
+}
+
+/**
+ * Interface to encapsulate a PresentationRequestCreated receipt data
+ */
+export interface PresentationRequestCreatedReceiptData {
+  match: boolean;
+  requestId: string;
+}
+
+/**
+ * Interface to encapsulate a PresentationRequestShared receipt data
+ */
+export interface PresentationRequestSharedReceiptData {
+  id: string;
+  uuid: string;
+}
+
+/**
+ * Interface to encapsulate a PresentationCreated receipt data
+ */
+export interface PresentationCreatedReceiptData {
+  uuid: string;
+  presentationRequestUuid: string;
+  credentials: {
+      /**
+       * persisting both in case of future versioning and the exact credential uuid is needed.
+       * however, the id is what is really used in the wallet and throughout referencing credentials
+       */
+      uuid: string; // credential uuid
+      id: string; // credential id
+      type: string;
+      issuer: string;
+  }[];
+}
+
+/**
+ * Interface to encapsulate a PresentationShared receipt data
+ */
+export interface PresentationSharedReceiptData {
+  uuid: string;
+  credentials: {
+      /**
+       * persisting both in case of future versioning and the exact credential uuid is needed.
+       * however, the id is what is really used in the wallet and throughout referencing credentials
+       */
+      uuid: string; // credential uuid
+      id: string; // credential id
+      type: string;
+      issuer: string;
+  }[];
+}
+
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER SERVICE *
