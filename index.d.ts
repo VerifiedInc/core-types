@@ -189,6 +189,19 @@ export enum ReceiptTypeEnum {
   CredentialStatusUpdated = 'CredentialStatusUpdated'
 }
 
+/**
+ * Enum of the different types of receipts
+ * Note: adding values so typing would not be 'any'
+ */
+export enum ReceiptTypeEnum2 { 
+  CredentialCreated,
+  PresentationRequestCreated,
+  PresentationRequestShared,
+  PresentationCreated,
+  PresentationShared,
+  CredentialStatusUpdated
+}
+
 export type ReceiptData = CredentialCreatedReceiptData |
   PresentationRequestCreatedReceiptData |
   PresentationCreatedReceiptData |
