@@ -137,7 +137,7 @@ export interface CredentialDto {
   issuanceDate: string; // ms since epoch, unix timestamp
   expirationDate: string | null; // ms since epoch, unix timestamp
   data: Record<string, any>;
-  issuer: string; // brand uuid
+  issuerUuid: string; // brand uuid
 }
 
 /**
