@@ -26,12 +26,21 @@ export interface VerificationCodeOptions {
 }
 
 /**
- * Options for creating a Credential
+ * Options for a Credential data
  */
-export interface CredentialOptions {
+export interface CredentialDataOptions {
   type: string;
   data: Record<string, any>;
   expirationDate?: number | null; // ms since epoch, unix timestamp
+}
+
+/**
+ * Options for creating Credentials via the Core Service's /credentials service
+ */
+export interface CredentialsOptions {
+  email?: string;
+  phone?: string
+  credentials: CredentialDataOptions[];
 }
 
 /**
