@@ -26,6 +26,15 @@ export interface VerificationCodeOptions {
 }
 
 /**
+ * Options for creating a Credential
+ */
+export interface CredentialOptions {
+  type: string;
+  data: Record<string, any>;
+  expirationDate?: number | null; // ms since epoch, unix timestamp
+}
+
+/**
  * The User object returned from the core service
  */
 export interface UserDto {
