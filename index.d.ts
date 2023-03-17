@@ -128,7 +128,6 @@ export interface PresentationRequestDto {
   expirationDate: string | null; // ms since epoch, unix timestamp
   requestingBrand: BrandDto;
   issuingBrands: BrandDto[];
-  user: UserDto;
 }
 
 /**
