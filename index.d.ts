@@ -288,6 +288,8 @@ export interface PresentationSchemaAttributes {
   label: string;
   /** comment for the credential value */
   comment: string;
+  /** display format for the credential value */
+  displayFormat: string;
 }
 
 export interface PresentationSchema {
