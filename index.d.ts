@@ -26,6 +26,15 @@ export interface VerificationCodeOptions {
 }
 
 /**
+ * Options for creating a VerificationCodeMessage
+ */
+export interface VerificationCodeMessageOptions {
+  email?: string;
+  phone?: string;
+  verificationLinkParams?: Record<string, string>;
+}
+
+/**
  * Options for a Credential data
  */
 export interface CredentialDataOptions {
