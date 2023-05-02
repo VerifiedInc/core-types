@@ -31,7 +31,7 @@ export interface VerificationCodeOptions {
 export interface VerificationCodeMessageOptions {
   email?: string;
   phone?: string;
-  verificationLinkParams?: Record<string, string>;
+  verificationLinkParams?: string;
 }
 
 /**
