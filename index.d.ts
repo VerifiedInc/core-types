@@ -302,6 +302,7 @@ export interface CardDto {
 export interface CardDetailsDto {
   issuerUuid: string; // uuid of the issuing brand
   issuerName: string; // issuerName of the issuing brand
+  cardImageUrl: string; // cardImageUrl of the issuing brand
   createdAt: string; // ms since epoch, unix timestamp of the first credential issued by the brand
   updatedAt: string; // ms since epoch, unix timestamp of the last credential updated by the brand
   credentials: CredentialDto[]; // credentials issued by the brand to the user
