@@ -339,6 +339,9 @@ export interface CredentialSchemaData {
 export interface SchemaGroupings {
   name?: CredentialSchemaData | undefined;
   contactInfo?: CredentialSchemaData | undefined;
+  miscellaneous?: CredentialSchemaData | undefined;
+  document?: CredentialSchemaData | undefined;
+  [key: string]: CredentialSchemaData | undefined;
 }
 
 export interface SchemaPresentationDto {
