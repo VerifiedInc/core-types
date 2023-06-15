@@ -268,6 +268,9 @@ export interface PresentationCreatedReceiptData {
     type: string;
     issuer: string;
   }[];
+  // param used by acceptors to track conversions
+  // named like this because the query param is named `verified`
+  verifiedTrackingParam?: string;
 }
 
 /**
@@ -285,6 +288,9 @@ export interface PresentationSharedReceiptData {
     type: string;
     issuer: string;
   }[];
+  // param used by acceptors to track conversions
+  // named like this because the query param is named `verified`
+  verifiedTrackingParam?: string;
 }
 
 /**
