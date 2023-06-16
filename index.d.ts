@@ -175,6 +175,9 @@ export interface PresentationOptions {
   credentialIds: string[];
   presentationRequestUuid: string;
   expirationDate?: string | null; // ms since epoch, unix timestamp
+  // param used by acceptors to track conversions
+  // named like this because the query param is named `verified`
+  verifiedTrackingParam?: string;
 }
 
 /**
@@ -193,6 +196,9 @@ export interface PresentationDto {
   user: UserDto;
   presentationRequest: PresentationRequestDto;
   credentials: CredentialDto[];
+  // param used by acceptors to track conversions
+  // named like this because the query param is named `verified`
+  verifiedTrackingParam?: string;
 }
 
 export type ReceiptType =
