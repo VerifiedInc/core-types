@@ -122,6 +122,7 @@ export interface BrandDto {
   issuerName: string;
   receiverName: string;
   cardImageUrl: string;
+  logoImageUrl: string | null;
   customer: CustomerDto;
 }
 
