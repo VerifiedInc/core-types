@@ -24,7 +24,7 @@ jobs:
         run: |
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           git tag -l --format='%(contents:subject)' ${GITHUB_REF#refs/*/}
-          echo "TAG_MESSAGE=$(git tag -l --format='%(contents:subject)' ${GITHUB_REF#refs/*/}) | sed \"s/[^ .,:[:alpha:][:digit:]]//g\"" >> $GITHUB_ENV
+          echo "TAG_MESSAGE=$(git tag -l --format='%(contents:subject)' ${GITHUB_REF#refs/*/} | sed 's/[^ .,:[:alpha:][:digit:]]//g')" >> $GITHUB_ENV
 
       - name: Test env
         run: |
