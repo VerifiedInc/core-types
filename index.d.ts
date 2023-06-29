@@ -125,6 +125,7 @@ export interface BrandDto {
   logoImageUrl: string | null;
   homepageUrl: string | null;
   termsUrl: string | null;
+  privacyUrl: string | null;
   customer: CustomerDto;
 }
 

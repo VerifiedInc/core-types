@@ -18,14 +18,14 @@ jobs:
         run: |
           echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
           echo "TAG_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-      
+
       # ref: https://stackoverflow.com/questions/65606498/how-to-access-github-tag-message-in-github-actions
       - name: Get and set tag message
         run: |
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           git tag -l --format='%(contents:subject)' ${GITHUB_REF#refs/*/}
-          echo "TAG_MESSAGE=$(git tag -l --format='%(contents:subject)' ${GITHUB_REF#refs/*/})" >> $GITHUB_ENV
-      
+          echo "TAG_MESSAGE=$(git tag -l --format='%(contents:subject)' ${GITHUB_REF#refs/*/}) | sed \"s/[^ .,:[:alpha:][:digit:]]//g\"" >> $GITHUB_ENV
+
       - name: Test env
         run: |
           echo $RELEASE_VERSION
@@ -50,7 +50,7 @@ jobs:
       # - name: Create type docs
       #   run: |
       #     ./createTypedocs.sh
-          
+
       # # ref: https://github.com/marketplace/actions/npm-publish
       # - name: NPM package publish
       #   uses: JS-DevTools/npm-publish@v1
