@@ -100,6 +100,7 @@ export interface CredentialRequestDto {
   type: string;
   issuers: string[];
   required?: boolean;
+  description?: string;
 }
 
 /**
