@@ -94,12 +94,23 @@ export interface AuthenticationResult {
 }
 
 /**
+ * Type of possible options for mandatory field a credential request.
+ */
+export enum MandatoryEnum {
+  YES = 'yes',
+  NO = 'no',
+  IF_AVAILABLE = 'if_available'
+}
+
+/**
  * Represents a credential request in a presentation request
  */
 export interface CredentialRequestDto {
   type: string;
   issuers: string[];
+  // @deprecated - Use Instead *mandatory* field.
   required?: boolean;
+  mandatory?: MandatoryEnum;
   description?: string;
 }
 
