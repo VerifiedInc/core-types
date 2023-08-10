@@ -1,3 +1,5 @@
+import { MandatoryEnum } from './constants';
+
 /****************************************
  *         DATA RESOLVER TYPES          *
  * TYPES FROM THE DATA RESOLVER SERVICE *
@@ -92,15 +94,6 @@ export interface AuthenticationResult {
   };
   user: UserDto;
 }
-
-/**
- * Type of possible options for mandatory field a credential request.
- */
-export const MandatoryEnum = {
-  YES: 'yes',
-  NO: 'no',
-  IF_AVAILABLE: 'if_available'
-} as const
 
 /**
  * Represents a credential request in a presentation request
