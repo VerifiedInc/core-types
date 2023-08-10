@@ -1,6 +1,6 @@
 {
   "name": "@unumid/core-types",
-  "version": "0.23.1",
+  "version": "0.23.2",
   "description": "UnumID shared core service types",
   "main": "index.js",
   "engines": {

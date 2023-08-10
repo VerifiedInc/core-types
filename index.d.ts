@@ -96,11 +96,11 @@ export interface AuthenticationResult {
 /**
  * Type of possible options for mandatory field a credential request.
  */
-export enum MandatoryEnum {
+export const MandatoryEnum = {
   YES = 'yes',
   NO = 'no',
   IF_AVAILABLE = 'if_available'
-}
+} as const
 
 /**
  * Represents a credential request in a presentation request
