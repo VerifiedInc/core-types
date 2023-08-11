@@ -1,4 +1,4 @@
-import { MandatoryEnum } from './constants';
+import { MandatoryEnum } from './enums';
 
 /****************************************
  *         DATA RESOLVER TYPES          *
