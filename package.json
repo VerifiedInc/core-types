@@ -25,5 +25,5 @@
   "devDependencies": {
     "typescript": "^4.9.5"
   },
-  "files": ["index.d.ts", "index.js", "constants.ts", "constants.js"]
+  "files": ["index.d.ts", "index.js", "enums.ts", "enums.js"]
 }
