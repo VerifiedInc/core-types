@@ -1,2 +1,2 @@
-export * as enums from './enums';
+export * from './enums';
 //# sourceMappingURL=index.d.ts.map
