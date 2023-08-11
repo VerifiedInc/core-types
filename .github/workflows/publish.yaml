@@ -42,13 +42,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Compile package
-        run: npm run compile
-
       # ref: https://github.community/t/auto-update-package-json-on-publishing/16894
       - name: Update source code
         run: |
           npm --no-git-tag-version version ${{ env.RELEASE_VERSION }}
+
+      - name: Compile package
+        run: npm run compile
 
       # - name: Create type docs
       #   run: |
