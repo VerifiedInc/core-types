@@ -68,7 +68,5 @@
       "resolveJsonModule": true,
       "lib": ["es2019"]
     },
-    "exclude": [
-      "test"
-    ]
+    "exclude": ["test", "build"]
   }
