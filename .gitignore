@@ -1,6 +1,3 @@
 node_modules/
 .history
 .idea
-
-# Ignore build files
-build/
