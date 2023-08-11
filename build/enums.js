@@ -4,9 +4,10 @@ exports.MandatoryEnum = void 0;
 /**
  * Type of possible options for mandatory field a credential request.
  */
-exports.MandatoryEnum = {
-    YES: 'yes',
-    NO: 'no',
-    IF_AVAILABLE: 'if_available'
-};
+var MandatoryEnum;
+(function (MandatoryEnum) {
+    MandatoryEnum["YES"] = "yes";
+    MandatoryEnum["NO"] = "no";
+    MandatoryEnum["IF_AVAILABLE"] = "if_available";
+})(MandatoryEnum = exports.MandatoryEnum || (exports.MandatoryEnum = {}));
 //# sourceMappingURL=enums.js.map
