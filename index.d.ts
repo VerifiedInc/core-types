@@ -1,3 +1,5 @@
+import { MandatoryEnum } from './enums';
+
 /****************************************
  *         DATA RESOLVER TYPES          *
  * TYPES FROM THE DATA RESOLVER SERVICE *
@@ -91,15 +93,6 @@ export interface AuthenticationResult {
     payload: JWTPayload;
   };
   user: UserDto;
-}
-
-/**
- * Type of possible options for mandatory field a credential request.
- */
-export enum MandatoryEnum {
-  YES = 'yes',
-  NO = 'no',
-  IF_AVAILABLE = 'if_available'
 }
 
 /**

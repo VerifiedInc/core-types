@@ -1,14 +1,16 @@
 {
   "name": "@unumid/core-types",
-  "version": "0.23.1",
+  "version": "0.23.2",
   "description": "UnumID shared core service types",
-  "main": "index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "engines": {
     "node": ">= 18.12.1",
     "npm": ">=8.19.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc --build"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,6 @@
   "homepage": "https://github.com/UnumID/core-types#readme",
   "devDependencies": {
     "typescript": "^4.9.5"
-  }
+  },
+  "files": ["build/"]
 }
