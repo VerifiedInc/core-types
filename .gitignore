@@ -3,5 +3,4 @@ node_modules/
 .idea
 
 # Ignore build files
-*.js
-/*.js
+build/
