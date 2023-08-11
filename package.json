@@ -1,6 +1,6 @@
 {
   "name": "@unumid/core-types",
-  "version": "0.23.2",
+  "version": "0.23.3",
   "description": "UnumID shared core service types",
   "main": "build/index.js",
   "types": "build/index.d.ts",
