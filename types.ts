@@ -397,7 +397,7 @@ export interface CredentialSchemaProperties {
   }
 }
 
-export interface CredentialSchemaRequired {
+export interface CredentialSchemaUnevaluatedProperties {
   unevaluatedProperties: boolean
 }
 
@@ -417,8 +417,7 @@ export interface CredentialSchemaCompositeProperties extends CredentialSchemaPro
   additionalProperties: boolean
 }
 
-export interface CompositeCredentialSchema extends CredentialSchemaId, CredentialSchemaRequired, CredentialSchemaRequired {
-  unevaluatedProperties?: boolean,
+export interface CompositeCredentialSchema extends CredentialSchemaId, CredentialSchemaRequired, CredentialSchemaUnevaluatedProperties {
   anyOf?: CredentialSchemaCompositeProperties[]
   oneOf?: CredentialSchemaCompositeProperties[]
   allOf?: CredentialSchemaCompositeProperties[]
