@@ -148,6 +148,7 @@ export interface PresentationRequestDto {
   requestingBrand: BrandDto;
   issuingBrands: BrandDto[];
   description?: string | null;
+  children?: PresentationRequestDto[]
 }
 
 /**
