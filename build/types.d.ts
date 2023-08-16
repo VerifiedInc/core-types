@@ -159,10 +159,17 @@ export interface CredentialDto {
     issuerUuid: string;
 }
 /**
+ * Option for credentials, part of PresentationOptions
+ */
+export type PresentationCredentialOption = {
+    id: string;
+    children?: PresentationCredentialOption;
+}[];
+/**
  * Options for creating a Presentation
  */
 export interface PresentationOptions {
-    credentialIds: string[];
+    credentials: PresentationCredentialOption;
     presentationRequestUuid: string;
     expirationDate?: string | null;
     verifiedTrackingParam?: string;
@@ -313,4 +320,47 @@ export interface SchemaGroupings {
 export interface SchemaPresentationDto {
     groupings: SchemaGroupings | undefined;
 }
+/*********************************************
+ *         SCHEMA RESOLVER V2 TYPES          *
+ * TYPES FROM THE SCHEMA RESOLVER V2 SERVICE *
+ *********************************************/
+export interface CredentialSchemaProperties {
+    properties: {
+        [property: string]: {
+            format: string;
+            description?: string;
+            examples?: string[];
+            title: string;
+            displayFormat: string;
+            type: string;
+        };
+    };
+}
+export interface CredentialSchemaUnevaluatedProperties {
+    unevaluatedProperties: boolean;
+}
+export interface CredentialSchemaRequired {
+    required: string[];
+}
+export interface CredentialSchemaType {
+    type: string;
+}
+export interface CredentialSchemaId {
+    $id: string;
+}
+export interface CredentialSchemaCompositeProperties extends CredentialSchemaProperties {
+    additionalProperties: boolean;
+}
+export interface CompositeCredentialSchema extends CredentialSchemaId, CredentialSchemaRequired, CredentialSchemaUnevaluatedProperties {
+    anyOf?: CredentialSchemaCompositeProperties[];
+    oneOf?: CredentialSchemaCompositeProperties[];
+    allOf?: CredentialSchemaCompositeProperties[];
+}
+export interface AtomicCredentialSchema extends CredentialSchemaId, CredentialSchemaType, CredentialSchemaProperties, CredentialSchemaRequired {
+}
+export type CredentialSchemaDto = {
+    schemas: {
+        [credential: string]: CompositeCredentialSchema | AtomicCredentialSchema;
+    };
+};
 //# sourceMappingURL=types.d.ts.map
