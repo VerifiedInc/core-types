@@ -388,7 +388,7 @@ export interface SchemaPresentationDto {
 export interface CredentialSchemaProperties {
   properties: {
     [property: string]: {
-      format: string
+      format?: string
       description?: string
       examples?: string[]
       title: string
