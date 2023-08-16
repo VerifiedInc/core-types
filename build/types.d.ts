@@ -92,6 +92,7 @@ export interface CredentialRequestDto {
     required?: boolean;
     mandatory?: MandatoryEnum;
     description?: string;
+    children?: CredentialRequestDto[];
 }
 /**
  * The customer object returned from the core service
@@ -132,7 +133,6 @@ export interface PresentationRequestDto {
     requestingBrand: BrandDto;
     issuingBrands: BrandDto[];
     description?: string | null;
-    children?: PresentationRequestDto[];
 }
 /**
  * Non-sensitive metadata about a presentation request, accessible to non-authenticated users
