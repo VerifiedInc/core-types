@@ -105,6 +105,7 @@ export interface CredentialRequestDto {
   required?: boolean;
   mandatory?: MandatoryEnum;
   description?: string;
+  children?: CredentialRequestDto[]
 }
 
 /**
@@ -148,7 +149,6 @@ export interface PresentationRequestDto {
   requestingBrand: BrandDto;
   issuingBrands: BrandDto[];
   description?: string | null;
-  children?: PresentationRequestDto[]
 }
 
 /**
