@@ -329,6 +329,16 @@ export interface CardDto {
 }
 
 /**
+ * Object representing an offer from a brand relationship
+ */
+export interface PartnerOfferDto {
+  reward: string;
+  description: string;
+  presentationRequestId: string;
+  receiverBrand: BrandDto;
+}
+
+/**
  * "CardDetails" object representing the details of all credentials issued by a brand to the user
  */
 export interface CardDetailsDto {
@@ -338,6 +348,7 @@ export interface CardDetailsDto {
   createdAt: string; // ms since epoch, unix timestamp of the first credential issued by the brand
   updatedAt: string; // ms since epoch, unix timestamp of the last credential updated by the brand
   credentials: CredentialDto[]; // credentials issued by the brand to the user
+  offers: PartnerOfferDto[]; // offers from the brand's relationships
 }
 
 /******************************************

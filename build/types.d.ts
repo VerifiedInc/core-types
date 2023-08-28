@@ -277,6 +277,15 @@ export interface CardDto {
     cardImageUrl: string;
 }
 /**
+ * Object representing an offer from a brand relationship
+ */
+export interface PartnerOfferDto {
+    reward: string;
+    description: string;
+    presentationRequestId: string;
+    receiverBrand: BrandDto;
+}
+/**
  * "CardDetails" object representing the details of all credentials issued by a brand to the user
  */
 export interface CardDetailsDto {
@@ -286,6 +295,7 @@ export interface CardDetailsDto {
     createdAt: string;
     updatedAt: string;
     credentials: CredentialDto[];
+    offers: PartnerOfferDto[];
 }
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
