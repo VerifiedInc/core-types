@@ -105,7 +105,7 @@ export interface CredentialRequestDto {
   required?: boolean;
   mandatory?: MandatoryEnum;
   description?: string;
-  children?: CredentialRequestDto[]
+  children?: CredentialRequestDto[];
 }
 
 /**
@@ -182,9 +182,9 @@ export interface CredentialDto {
  * Option for credentials, part of PresentationOptions
  */
 export type PresentationCredentialOption = {
-  id: string
-  children?: PresentationCredentialOption
-}[]
+  id: string;
+  children?: PresentationCredentialOption;
+}[];
 
 /**
  * Options for creating a Presentation
@@ -192,7 +192,7 @@ export type PresentationCredentialOption = {
 export interface PresentationOptions {
   // userUuid will be inferred from the auth token
   // brandUuid will be inferred from the presentationRequest
-  credentials: PresentationCredentialOption
+  credentials: PresentationCredentialOption;
   presentationRequestUuid: string;
   expirationDate?: string | null; // ms since epoch, unix timestamp
   // param used by acceptors to track conversions
@@ -396,47 +396,89 @@ export interface SchemaPresentationDto {
  * TYPES FROM THE SCHEMA RESOLVER V2 SERVICE *
  *********************************************/
 
+/**
+ * Describes the input to use to collect a credential value from the user
+ */
+export interface CredentialSchemaInput {
+  type: string; // input type (text, select, etc.)
+  options?: Array<string | { value: string; label: string }>; // options for select inputs
+  pattern?: string; // regex pattern for text inputs
+}
+
 export interface CredentialSchemaProperties {
   properties: {
     [property: string]: {
-      format?: string
-      description?: string
-      examples?: string[]
-      title: string
-      displayFormat: string
-      type: string
-    }
-  }
+      format?: string;
+      description?: string;
+      examples?: string[];
+      title: string;
+      displayFormat: string;
+      type: string;
+    };
+  };
+  // if the value of the named property is the value of const, use the then schema
+  // otherwise use the top level schema
+  if: {
+    type: string;
+    properties: {
+      [property: string]: {
+        type: string;
+        const: string; // the value to match
+        description: string;
+      };
+    };
+    required: string[];
+  };
+  then: {
+    type: string;
+    properties: {
+      [property: string]: {
+        type: string;
+        description: string;
+        format: string;
+        title: string;
+        input: CredentialSchemaInput;
+      };
+    };
+    required: string[];
+  };
 }
 
 export interface CredentialSchemaUnevaluatedProperties {
-  unevaluatedProperties: boolean
+  unevaluatedProperties: boolean;
 }
 
 export interface CredentialSchemaRequired {
-  required: string[]
+  required: string[];
 }
 
 export interface CredentialSchemaType {
-  type: string
+  type: string;
 }
 
 export interface CredentialSchemaId {
-  $id: string
+  $id: string;
 }
 
 export interface CredentialSchemaCompositeProperties extends CredentialSchemaProperties {
-  additionalProperties: boolean
+  additionalProperties: boolean;
 }
 
-export interface CompositeCredentialSchema extends CredentialSchemaId, CredentialSchemaRequired, CredentialSchemaUnevaluatedProperties {
-  anyOf?: CredentialSchemaCompositeProperties[]
-  oneOf?: CredentialSchemaCompositeProperties[]
-  allOf?: CredentialSchemaCompositeProperties[]
+export interface CompositeCredentialSchema
+  extends CredentialSchemaId,
+    CredentialSchemaRequired,
+    CredentialSchemaUnevaluatedProperties {
+  anyOf?: CredentialSchemaCompositeProperties[];
+  oneOf?: CredentialSchemaCompositeProperties[];
+  allOf?: CredentialSchemaCompositeProperties[];
 }
 
-export interface AtomicCredentialSchema extends CredentialSchemaId, CredentialSchemaType, CredentialSchemaProperties, CredentialSchemaRequired {}
+export interface AtomicCredentialSchema
+  extends CredentialSchemaId,
+    CredentialSchemaType,
+    CredentialSchemaProperties,
+    CredentialSchemaRequired {}
 
 export type CredentialSchemaDto = {
-  schemas: { [credential: string]: CompositeCredentialSchema | AtomicCredentialSchema }
+  schemas: { [credential: string]: CompositeCredentialSchema | AtomicCredentialSchema };
 };
