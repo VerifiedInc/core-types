@@ -105,6 +105,7 @@ export interface CredentialRequestDto {
   required?: boolean;
   mandatory?: MandatoryEnum;
   description?: string;
+  allowUserInput?: boolean;
   children?: CredentialRequestDto[];
 }
 
