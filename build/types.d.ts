@@ -92,6 +92,7 @@ export interface CredentialRequestDto {
     required?: boolean;
     mandatory?: MandatoryEnum;
     description?: string;
+    allowUserInput?: boolean;
     children?: CredentialRequestDto[];
 }
 /**
@@ -335,6 +336,17 @@ export interface SchemaPresentationDto {
  *         SCHEMA RESOLVER V2 TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER V2 SERVICE *
  *********************************************/
+/**
+ * Describes the input to use to collect a credential value from the user
+ */
+export interface CredentialSchemaInput {
+    type: string;
+    options?: Array<string | {
+        value: string;
+        label: string;
+    }>;
+    pattern?: string;
+}
 export interface CredentialSchemaProperties {
     properties: {
         [property: string]: {
@@ -345,6 +357,30 @@ export interface CredentialSchemaProperties {
             displayFormat: string;
             type: string;
         };
+    };
+    if: {
+        type: string;
+        properties: {
+            [property: string]: {
+                type: string;
+                const: string;
+                description: string;
+            };
+        };
+        required: string[];
+    };
+    then: {
+        type: string;
+        properties: {
+            [property: string]: {
+                type: string;
+                description: string;
+                format: string;
+                title: string;
+                input: CredentialSchemaInput;
+            };
+        };
+        required: string[];
     };
 }
 export interface CredentialSchemaUnevaluatedProperties {
