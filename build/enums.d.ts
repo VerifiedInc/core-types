@@ -18,4 +18,16 @@ export declare enum DisplayFormatEnum {
     Number = "Number",
     CurrencyAmount = "CurrencyAmount"
 }
+/**
+ * Possible input format that user can provide.
+ */
+export declare enum InputFormatEnum {
+    Text = "Text",
+    Date = "Date",
+    Select = "Select",
+    Email = "Email",
+    Phone = "Phone",
+    SSN = "SSN",
+    Image = "Image"
+}
 //# sourceMappingURL=enums.d.ts.map

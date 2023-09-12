@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayFormatEnum = exports.MandatoryEnum = void 0;
+exports.InputFormatEnum = exports.DisplayFormatEnum = exports.MandatoryEnum = void 0;
 /**
  * Type of possible options for mandatory field a credential request.
  */
@@ -23,4 +23,17 @@ var DisplayFormatEnum;
     DisplayFormatEnum["Number"] = "Number";
     DisplayFormatEnum["CurrencyAmount"] = "CurrencyAmount";
 })(DisplayFormatEnum = exports.DisplayFormatEnum || (exports.DisplayFormatEnum = {}));
+/**
+ * Possible input format that user can provide.
+ */
+var InputFormatEnum;
+(function (InputFormatEnum) {
+    InputFormatEnum["Text"] = "Text";
+    InputFormatEnum["Date"] = "Date";
+    InputFormatEnum["Select"] = "Select";
+    InputFormatEnum["Email"] = "Email";
+    InputFormatEnum["Phone"] = "Phone";
+    InputFormatEnum["SSN"] = "SSN";
+    InputFormatEnum["Image"] = "Image";
+})(InputFormatEnum = exports.InputFormatEnum || (exports.InputFormatEnum = {}));
 //# sourceMappingURL=enums.js.map

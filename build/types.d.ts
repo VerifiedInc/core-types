@@ -1,4 +1,4 @@
-import { MandatoryEnum } from './enums';
+import { InputFormatEnum, MandatoryEnum } from './enums';
 /****************************************
  *         DATA RESOLVER TYPES          *
  * TYPES FROM THE DATA RESOLVER SERVICE *
@@ -166,6 +166,8 @@ export interface CredentialDto {
 export type PresentationCredentialOption = {
     id: string;
     children?: PresentationCredentialOption;
+    type?: string;
+    value?: string;
 }[];
 /**
  * Options for creating a Presentation
@@ -340,23 +342,25 @@ export interface SchemaPresentationDto {
  * Describes the input to use to collect a credential value from the user
  */
 export interface CredentialSchemaInput {
-    type: string;
+    type: InputFormatEnum;
     options?: Array<string | {
         value: string;
         label: string;
     }>;
     pattern?: string;
 }
+export interface CredentialSchemaProperty {
+    format?: string;
+    description?: string;
+    examples?: string[];
+    title: string;
+    displayFormat: string;
+    type: string;
+    input?: CredentialSchemaInput;
+}
 export interface CredentialSchemaProperties {
     properties: {
-        [property: string]: {
-            format?: string;
-            description?: string;
-            examples?: string[];
-            title: string;
-            displayFormat: string;
-            type: string;
-        };
+        [property: string]: CredentialSchemaProperty;
     };
     if: {
         type: string;
@@ -372,13 +376,7 @@ export interface CredentialSchemaProperties {
     then: {
         type: string;
         properties: {
-            [property: string]: {
-                type: string;
-                description: string;
-                format: string;
-                title: string;
-                input: CredentialSchemaInput;
-            };
+            [property: string]: CredentialSchemaProperty;
         };
         required: string[];
     };
@@ -398,10 +396,14 @@ export interface CredentialSchemaId {
 export interface CredentialSchemaCompositeProperties extends CredentialSchemaProperties {
     additionalProperties: boolean;
 }
+export interface CredentialSchemaCompositeReference extends CredentialSchemaProperties {
+    allOf: {
+        $ref: string;
+    }[];
+}
 export interface CompositeCredentialSchema extends CredentialSchemaId, CredentialSchemaRequired, CredentialSchemaUnevaluatedProperties {
-    anyOf?: CredentialSchemaCompositeProperties[];
+    anyOf?: (CredentialSchemaCompositeProperties | CredentialSchemaCompositeReference)[];
     oneOf?: CredentialSchemaCompositeProperties[];
-    allOf?: CredentialSchemaCompositeProperties[];
 }
 export interface AtomicCredentialSchema extends CredentialSchemaId, CredentialSchemaType, CredentialSchemaProperties, CredentialSchemaRequired {
 }
