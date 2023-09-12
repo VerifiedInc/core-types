@@ -19,3 +19,17 @@ export enum DisplayFormatEnum {
   Number = 'Number',
   CurrencyAmount = 'CurrencyAmount',
 }
+
+
+/**
+ * Possible input format that user can provide.
+ */
+export enum InputFormatEnum {
+  Text = 'Text',
+  Date = 'Date',
+  Select = 'Select',
+  Email = 'Email',
+  Phone = 'Phone',
+  SSN = 'SSN',
+  Image = 'Image'
+}
