@@ -168,6 +168,7 @@ export type PresentationCredentialOption = {
     children?: PresentationCredentialOption;
     type?: string;
     value?: string;
+    isNewCredential?: boolean;
 }[];
 /**
  * Options for creating a Presentation
