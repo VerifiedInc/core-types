@@ -1,4 +1,4 @@
-import {InputFormatEnum, MandatoryEnum} from './enums';
+import { InputFormatEnum, MandatoryEnum } from './enums';
 
 /****************************************
  *         DATA RESOLVER TYPES          *
@@ -43,6 +43,7 @@ export interface CredentialDataOptions {
   type: string;
   data: Record<string, any>;
   expirationDate?: number | null; // ms since epoch, unix timestamp
+  id?: string;
 }
 
 /**
@@ -52,6 +53,19 @@ export interface CredentialsOptions {
   email?: string;
   phone?: string;
   credentials: CredentialDataOptions[];
+  partnerUuid?: string;
+  trackingId?: string;
+}
+
+/**
+ * Object returned by the core service when issuing credentials
+ */
+export interface CredentialsResult {
+  credentials: CredentialDto[];
+  email?: string;
+  phone?: string;
+  url?: string;
+  trackingId?: string;
 }
 
 /**
@@ -416,7 +430,7 @@ export interface CredentialSchemaProperty {
   title: string;
   displayFormat: string;
   type: string;
-  input?: CredentialSchemaInput
+  input?: CredentialSchemaInput;
 }
 
 export interface CredentialSchemaProperties {
@@ -439,7 +453,7 @@ export interface CredentialSchemaProperties {
   then: {
     type: string;
     properties: {
-      [property: string]: CredentialSchemaProperty
+      [property: string]: CredentialSchemaProperty;
     };
     required: string[];
   };
@@ -466,7 +480,7 @@ export interface CredentialSchemaCompositeProperties extends CredentialSchemaPro
 }
 
 export interface CredentialSchemaCompositeReference extends CredentialSchemaProperties {
-  allOf: {$ref: string}[];
+  allOf: { $ref: string }[];
 }
 
 export interface CompositeCredentialSchema

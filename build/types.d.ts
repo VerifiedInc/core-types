@@ -37,6 +37,7 @@ export interface CredentialDataOptions {
     type: string;
     data: Record<string, any>;
     expirationDate?: number | null;
+    id?: string;
 }
 /**
  * Options for creating Credentials via the Core Service's /credentials service
@@ -45,6 +46,18 @@ export interface CredentialsOptions {
     email?: string;
     phone?: string;
     credentials: CredentialDataOptions[];
+    partnerUuid?: string;
+    trackingId?: string;
+}
+/**
+ * Object returned by the core service when issuing credentials
+ */
+export interface CredentialsResult {
+    credentials: CredentialDto[];
+    email?: string;
+    phone?: string;
+    url?: string;
+    trackingId?: string;
 }
 /**
  * The User object returned from the core service
