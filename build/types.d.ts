@@ -133,6 +133,8 @@ export interface BrandDto {
     privacyUrl: string | null;
     customer: CustomerDto;
     clientUrl: string | null;
+    isConciergeEnabled: boolean;
+    isPartnerEnabled: boolean;
 }
 /**
  * The presentation request object returned from the core service
