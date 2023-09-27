@@ -149,6 +149,8 @@ export interface BrandDto {
   privacyUrl: string | null;
   customer: CustomerDto;
   clientUrl: string | null;
+  isConciergeEnabled: boolean
+  isPartnerEnabled: boolean
 }
 
 /**
