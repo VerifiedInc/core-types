@@ -316,6 +316,17 @@ export interface CardDetailsDto {
     credentials: CredentialDto[];
     offers: PartnerOfferDto[];
 }
+export interface OfferDto {
+    uuid: string;
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    reward: string | null;
+    description: string | null;
+    isActiveOffer: boolean;
+    receiverBrand: BrandDto;
+    presentationRequest: PresentationRequestDto;
+}
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER SERVICE *
