@@ -30,4 +30,11 @@ export declare enum InputFormatEnum {
     SSN = "SSN",
     Image = "Image"
 }
+/**
+ * Possible values for credential verification method
+ */
+export declare enum CredentialVerificationMethodEnum {
+    SELF_ATTESTED = "self_attested",
+    PROVE_PREFILL = "prove_prefill"
+}
 //# sourceMappingURL=enums.d.ts.map

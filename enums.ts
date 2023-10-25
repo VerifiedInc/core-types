@@ -17,9 +17,8 @@ export enum DisplayFormatEnum {
   String = 'String',
   State = 'State',
   Number = 'Number',
-  CurrencyAmount = 'CurrencyAmount',
+  CurrencyAmount = 'CurrencyAmount'
 }
-
 
 /**
  * Possible input format that user can provide.
@@ -32,4 +31,12 @@ export enum InputFormatEnum {
   Phone = 'Phone',
   SSN = 'SSN',
   Image = 'Image'
+}
+
+/**
+ * Possible values for credential verification method
+ */
+export enum CredentialVerificationMethodEnum {
+  SELF_ATTESTED = 'self_attested',
+  PROVE_PREFILL = 'prove_prefill'
 }
