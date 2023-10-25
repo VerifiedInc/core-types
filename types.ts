@@ -149,8 +149,8 @@ export interface BrandDto {
   privacyUrl: string | null;
   customer: CustomerDto;
   clientUrl: string | null;
-  isConciergeEnabled: boolean
-  isPartnerEnabled: boolean
+  isConciergeEnabled: boolean;
+  isPartnerEnabled: boolean;
 }
 
 /**
@@ -372,15 +372,15 @@ export interface CardDetailsDto {
 }
 
 export interface OfferDto {
-  uuid: string
-  id: string
-  createdAt: string
-  updatedAt: string
-  reward: string | null
-  description: string | null
-  isActiveOffer: boolean
-  receiverBrand: BrandDto
-  presentationRequest: PresentationRequestDto
+  uuid: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  reward: string | null;
+  description: string | null;
+  isActiveOffer: boolean;
+  receiverBrand: BrandDto;
+  presentationRequest: PresentationRequestDto;
 }
 
 /******************************************
@@ -435,6 +435,7 @@ export interface CredentialSchemaInput {
   type: InputFormatEnum; // input type (text, select, etc.)
   options?: Array<string | { value: string; label: string }>; // options for select inputs
   pattern?: string; // regex pattern for text inputs
+  default?: string; // default value for the input
 }
 
 export interface CredentialSchemaProperty {
