@@ -54,13 +54,14 @@ jobs:
       #   run: |
       #     ./createTypedocs.sh
 
-      # ref: https://github.com/marketplace/actions/npm-publish
-      - name: NPM package publish
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: public
-          registry: https://registry.npmjs.org/
+      # # TODO: add NPM_TOKEN to repo secrets so can publish to npm
+      # # ref: https://github.com/marketplace/actions/npm-publish
+      # - name: NPM package publish
+      #   uses: JS-DevTools/npm-publish@v1
+      #   with:
+      #     token: ${{ secrets.NPM_TOKEN }}
+      #     access: public
+      #     registry: https://registry.npmjs.org/
 
       - name: Github package publish
         uses: JS-DevTools/npm-publish@v1
