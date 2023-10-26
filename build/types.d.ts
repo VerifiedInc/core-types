@@ -375,6 +375,7 @@ export interface CredentialSchemaInput {
         label: string;
     }>;
     pattern?: string;
+    default?: string;
 }
 export interface CredentialSchemaProperty {
     format?: string;
