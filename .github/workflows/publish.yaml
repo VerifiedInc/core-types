@@ -54,6 +54,7 @@ jobs:
       #   run: |
       #     ./createTypedocs.sh
 
+      # # TODO: add NPM_TOKEN to repo secrets so can publish to npm
       # # ref: https://github.com/marketplace/actions/npm-publish
       # - name: NPM package publish
       #   uses: JS-DevTools/npm-publish@v1

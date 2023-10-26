@@ -1,5 +1,5 @@
 {
-  "name": "@unumid/core-types",
+  "name": "@verifiedinc/core-types",
   "version": "0.30.0",
   "description": "UnumID shared core service types",
   "main": "./build/index.js",
