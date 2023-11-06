@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CredentialVerificationMethodEnum = exports.InputFormatEnum = exports.DisplayFormatEnum = exports.MandatoryEnum = void 0;
+exports.UserIdentifierTypeEnum = exports.CredentialVerificationMethodEnum = exports.InputFormatEnum = exports.DisplayFormatEnum = exports.MandatoryEnum = void 0;
 /**
  * Type of possible options for mandatory field a credential request.
  */
@@ -44,4 +44,9 @@ var CredentialVerificationMethodEnum;
     CredentialVerificationMethodEnum["SELF_ATTESTED"] = "self_attested";
     CredentialVerificationMethodEnum["PROVE_PREFILL"] = "prove_prefill";
 })(CredentialVerificationMethodEnum = exports.CredentialVerificationMethodEnum || (exports.CredentialVerificationMethodEnum = {}));
+var UserIdentifierTypeEnum;
+(function (UserIdentifierTypeEnum) {
+    UserIdentifierTypeEnum["EMAIL"] = "EMAIL";
+    UserIdentifierTypeEnum["PHONE"] = "PHONE";
+})(UserIdentifierTypeEnum = exports.UserIdentifierTypeEnum || (exports.UserIdentifierTypeEnum = {}));
 //# sourceMappingURL=enums.js.map

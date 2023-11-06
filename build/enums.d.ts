@@ -37,4 +37,8 @@ export declare enum CredentialVerificationMethodEnum {
     SELF_ATTESTED = "self_attested",
     PROVE_PREFILL = "prove_prefill"
 }
+export declare enum UserIdentifierTypeEnum {
+    EMAIL = "EMAIL",
+    PHONE = "PHONE"
+}
 //# sourceMappingURL=enums.d.ts.map
