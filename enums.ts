@@ -40,3 +40,8 @@ export enum CredentialVerificationMethodEnum {
   SELF_ATTESTED = 'self_attested',
   PROVE_PREFILL = 'prove_prefill'
 }
+
+export enum UserIdentifierTypeEnum {
+  EMAIL = 'EMAIL',
+  PHONE = 'PHONE'
+}

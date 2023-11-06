@@ -1,4 +1,4 @@
-import { InputFormatEnum, MandatoryEnum } from './enums';
+import { InputFormatEnum, MandatoryEnum, UserIdentifierTypeEnum } from './enums';
 
 /****************************************
  *         DATA RESOLVER TYPES          *
@@ -381,6 +381,17 @@ export interface OfferDto {
   isActiveOffer: boolean;
   receiverBrand: BrandDto;
   presentationRequest: PresentationRequestDto;
+}
+
+export interface UserIdentifierDto {
+  uuid: string
+  createdAt: string;
+  updatedAt: string;
+  type: UserIdentifierTypeEnum;
+  value: string;
+  userUuid: string;
+  isIssued: boolean;
+  isVerified: boolean;
 }
 
 /******************************************
