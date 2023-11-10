@@ -114,7 +114,7 @@ export interface AuthenticationResult {
  */
 export interface CredentialRequestDto {
   type: string;
-  issuers: string[];
+  issuers?: string[];
   // @deprecated - Use Instead *mandatory* field.
   required?: boolean;
   mandatory?: MandatoryEnum;
@@ -384,7 +384,7 @@ export interface OfferDto {
 }
 
 export interface UserIdentifierDto {
-  uuid: string
+  uuid: string;
   createdAt: string;
   updatedAt: string;
   type: UserIdentifierTypeEnum;
