@@ -101,7 +101,7 @@ export interface AuthenticationResult {
  */
 export interface CredentialRequestDto {
     type: string;
-    issuers: string[];
+    issuers?: string[];
     required?: boolean;
     mandatory?: MandatoryEnum;
     description?: string;

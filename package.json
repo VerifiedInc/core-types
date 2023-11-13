@@ -1,6 +1,6 @@
 {
   "name": "@verifiedinc/core-types",
-  "version": "0.34.0",
+  "version": "0.35.0",
   "description": "UnumID shared core service types",
   "main": "./build/index.js",
   "typings": "./build/index.d.ts",
