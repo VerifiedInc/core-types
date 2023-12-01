@@ -38,7 +38,8 @@ export enum InputFormatEnum {
  */
 export enum CredentialVerificationMethodEnum {
   SELF_ATTESTED = 'self_attested',
-  PROVE_PREFILL = 'prove_prefill'
+  PROVE_PREFILL = 'prove_prefill',
+  OTP = 'otp'
 }
 
 export enum UserIdentifierTypeEnum {
