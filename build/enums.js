@@ -43,7 +43,7 @@ var CredentialVerificationMethodEnum;
 (function (CredentialVerificationMethodEnum) {
     CredentialVerificationMethodEnum["SELF_ATTESTED"] = "self_attested";
     CredentialVerificationMethodEnum["PROVE_PREFILL"] = "prove_prefill";
-    CredentialVerificationMethodEnum["VERIFIED_INC_VERIFIED"] = "verified_inc_verified"; // currently only possible through our otp authentication flow
+    CredentialVerificationMethodEnum["OTP"] = "otp";
 })(CredentialVerificationMethodEnum = exports.CredentialVerificationMethodEnum || (exports.CredentialVerificationMethodEnum = {}));
 var UserIdentifierTypeEnum;
 (function (UserIdentifierTypeEnum) {
