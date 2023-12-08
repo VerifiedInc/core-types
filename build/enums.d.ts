@@ -35,7 +35,7 @@ export declare enum InputFormatEnum {
  */
 export declare enum CredentialVerificationMethodEnum {
     SELF_ATTESTED = "self_attested",
-    PROVE_PREFILL = "prove_prefill",
+    PHONE_CARRIER = "phone_carrier",
     OTP = "otp"
 }
 export declare enum UserIdentifierTypeEnum {
