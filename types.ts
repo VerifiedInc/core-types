@@ -20,6 +20,15 @@ export interface TokenDto {
  ***********************************/
 
 /**
+ * Minified text response from core-service
+ */
+export interface MinifiedText {
+  text: string;
+  uuid: string;
+  expiresAt: number;
+}
+
+/**
  * Options for creating a VerificationCode
  */
 export interface VerificationCodeOptions {
