@@ -157,6 +157,7 @@ export interface PresentationRequestDto {
     requestingBrand: BrandDto;
     issuingBrands: BrandDto[];
     description?: string | null;
+    title?: string | null;
 }
 /**
  * Non-sensitive metadata about a presentation request, accessible to non-authenticated users
