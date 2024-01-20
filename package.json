@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/UnumID/core-types#readme",
   "devDependencies": {
+    "typedoc": "^0.25.7",
     "typescript": "^4.9.5"
   },
   "files": [
