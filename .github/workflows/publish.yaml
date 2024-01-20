@@ -50,9 +50,9 @@ jobs:
       - name: Compile package
         run: npm run compile
 
-      # - name: Create type docs
-      #   run: |
-      #     ./createTypedocs.sh
+      - name: Create type docs
+        run: |
+          ./createTypedocs.sh
 
       # # TODO: add NPM_TOKEN to repo secrets so can publish to npm
       # # ref: https://github.com/marketplace/actions/npm-publish
