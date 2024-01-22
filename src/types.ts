@@ -176,6 +176,7 @@ export interface PresentationRequestDto {
   issuingBrands: BrandDto[];
   description?: string | null;
   title?: string | null;
+  redirectUrl?: string | null;
 }
 
 /**
