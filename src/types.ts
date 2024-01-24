@@ -160,6 +160,7 @@ export interface BrandDto {
   clientUrl: string | null;
   isConciergeEnabled: boolean;
   isPartnerEnabled: boolean;
+  primaryColor: string | null;
 }
 
 /**
