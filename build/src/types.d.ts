@@ -156,6 +156,7 @@ export interface PresentationRequestDto {
     credentialRequests: CredentialRequestDto[];
     expirationDate: string | null;
     requestingBrand: BrandDto;
+    brand: BrandDto;
     issuingBrands: BrandDto[];
     description?: string | null;
     title?: string | null;
@@ -345,8 +346,41 @@ export interface UserIdentifierDto {
     type: UserIdentifierTypeEnum;
     value: string;
     userUuid: string;
+    credentialUuid: string | null;
     isIssued: boolean;
     isVerified: boolean;
+    issuedPhoneCarrierCredentials: boolean | null;
+}
+export interface OneClickDto {
+    identifiers: {
+        phone: string;
+    } | {
+        email: string;
+    };
+    credentials: Record<string, any>;
+    metadata: {
+        id: Record<string, any>;
+        verificationMethod: Record<string, any>;
+        status: Record<string, any>;
+        expirationDate: Record<string, any>;
+        issuanceDate: Record<string, any>;
+        issuerUuid: Record<string, any>;
+        identifiers: {
+            verificationMethod: Record<string, any>;
+        };
+    };
+}
+export interface OneClickDBDto {
+    uuid: string;
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    userIdentifierUuid: string;
+    presentationRequestUuid: string;
+    presentationUuid: string | null;
+    status: "CREATED" | "USER_OPTED_OUT" | "SHARED_CREDENTIALS";
+    presentationRequest: PresentationRequestDto;
+    userIdentifier: UserIdentifierDto;
 }
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
