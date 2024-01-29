@@ -179,7 +179,7 @@ export interface PresentationRequestDto {
   description?: string | null;
   title?: string | null;
   redirectUrl?: string | null;
-  isOneClick: boolean
+  isOneClick: boolean;
 }
 
 /**
