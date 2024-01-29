@@ -161,6 +161,7 @@ export interface PresentationRequestDto {
     description?: string | null;
     title?: string | null;
     redirectUrl?: string | null;
+    isOneClick: boolean;
 }
 /**
  * Non-sensitive metadata about a presentation request, accessible to non-authenticated users
