@@ -406,6 +406,32 @@ export interface UserIdentifierDto {
   isVerified: boolean;
 }
 
+export interface OneClickDto {
+  identifiers: {phone: string} | {email: string};
+  credentials: Record<string,any>
+  metadata: {
+    id: Record<string,any>
+    verificationMethod: Record<string, any>
+    status: Record<string,any>
+    expirationDate: Record<string,any>
+    issuanceDate: Record<string,any>
+    issuerUuid: Record<string,any>
+    identifiers: {
+      verificationMethod: Record<string,any>
+    }
+  }
+}
+
+export interface OneClickDBDto {
+  uuid: string
+  id: string
+  createdAt: string
+  updatedAt: string
+  userIdentifierUuid: string
+  presentationRequestUuid: string
+  presentationUuid: string | null
+}
+
 /******************************************
  *         SCHEMA RESOLVER TYPES          *
  * TYPES FROM THE SCHEMA RESOLVER SERVICE *
