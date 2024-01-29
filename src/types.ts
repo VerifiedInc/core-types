@@ -174,6 +174,7 @@ export interface PresentationRequestDto {
   credentialRequests: CredentialRequestDto[];
   expirationDate: string | null; // ms since epoch, unix timestamp
   requestingBrand: BrandDto;
+  brand: BrandDto;
   issuingBrands: BrandDto[];
   description?: string | null;
   title?: string | null;
@@ -402,8 +403,10 @@ export interface UserIdentifierDto {
   type: UserIdentifierTypeEnum;
   value: string;
   userUuid: string;
+  credentialUuid: string | null;
   isIssued: boolean;
   isVerified: boolean;
+  issuedPhoneCarrierCredentials: boolean | null
 }
 
 export interface OneClickDto {
@@ -430,6 +433,9 @@ export interface OneClickDBDto {
   userIdentifierUuid: string
   presentationRequestUuid: string
   presentationUuid: string | null
+  status: "CREATED" | "USER_OPTED_OUT" | "SHARED_CREDENTIALS"
+  presentationRequest: PresentationRequestDto
+  userIdentifier: UserIdentifierDto
 }
 
 /******************************************
