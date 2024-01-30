@@ -208,6 +208,12 @@ export interface PresentationOptions {
     verifiedTrackingParam?: string;
 }
 /**
+ * Options for creating a Presentation with a one-click uuid.
+ */
+export interface PresentationOneClickOptions extends Omit<PresentationOptions, 'presentationRequestUuid'> {
+    oneClickUuid: string;
+}
+/**
  * The presentation object returned from the core service
  */
 export interface PresentationDto {
