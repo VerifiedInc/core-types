@@ -39,7 +39,8 @@ export enum InputFormatEnum {
 export enum CredentialVerificationMethodEnum {
   SELF_ATTESTED = 'self_attested',
   PHONE_CARRIER = 'phone_carrier',
-  OTP = 'otp'
+  OTP = 'otp',
+  MIXED = 'mixed'
 }
 
 export enum UserIdentifierTypeEnum {
