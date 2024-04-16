@@ -46,6 +46,7 @@ export interface CredentialDataOptions {
     data: Record<string, any>;
     expirationDate?: number | null;
     id?: string;
+    verificationMethod?: string;
 }
 /**
  * Options for creating Credentials via the Core Service's /credentials service
@@ -385,7 +386,7 @@ export interface OneClickDBDto {
     userIdentifierUuid: string;
     presentationRequestUuid: string;
     presentationUuid: string | null;
-    status: "CREATED" | "USER_OPTED_OUT" | "SHARED_CREDENTIALS";
+    status: 'CREATED' | 'USER_OPTED_OUT' | 'SHARED_CREDENTIALS';
     presentationRequest: PresentationRequestDto;
     userIdentifier: UserIdentifierDto;
 }
