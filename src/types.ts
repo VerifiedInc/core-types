@@ -53,6 +53,7 @@ export interface CredentialDataOptions {
   data: Record<string, any>;
   expirationDate?: number | null; // ms since epoch, unix timestamp
   id?: string;
+  verificationMethod?: string;
 }
 
 /**
@@ -414,36 +415,36 @@ export interface UserIdentifierDto {
   credentialUuid: string | null;
   isIssued: boolean;
   isVerified: boolean;
-  issuedPhoneCarrierCredentials: boolean | null
+  issuedPhoneCarrierCredentials: boolean | null;
 }
 
 export interface OneClickDto {
-  identifiers: {phone: string} | {email: string};
-  credentials: Record<string,any>
+  identifiers: { phone: string } | { email: string };
+  credentials: Record<string, any>;
   metadata: {
-    id: Record<string,any>
-    verificationMethod: Record<string, any>
-    status: Record<string,any>
-    expirationDate: Record<string,any>
-    issuanceDate: Record<string,any>
-    issuerUuid: Record<string,any>
+    id: Record<string, any>;
+    verificationMethod: Record<string, any>;
+    status: Record<string, any>;
+    expirationDate: Record<string, any>;
+    issuanceDate: Record<string, any>;
+    issuerUuid: Record<string, any>;
     identifiers: {
-      verificationMethod: Record<string,any>
-    }
-  }
+      verificationMethod: Record<string, any>;
+    };
+  };
 }
 
 export interface OneClickDBDto {
-  uuid: string
-  id: string
-  createdAt: string
-  updatedAt: string
-  userIdentifierUuid: string
-  presentationRequestUuid: string
-  presentationUuid: string | null
-  status: "CREATED" | "USER_OPTED_OUT" | "SHARED_CREDENTIALS"
-  presentationRequest: PresentationRequestDto
-  userIdentifier: UserIdentifierDto
+  uuid: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  userIdentifierUuid: string;
+  presentationRequestUuid: string;
+  presentationUuid: string | null;
+  status: 'CREATED' | 'USER_OPTED_OUT' | 'SHARED_CREDENTIALS';
+  presentationRequest: PresentationRequestDto;
+  userIdentifier: UserIdentifierDto;
 }
 
 /******************************************
