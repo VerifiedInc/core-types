@@ -37,7 +37,8 @@ export declare enum CredentialVerificationMethodEnum {
     SELF_ATTESTED = "self_attested",
     PHONE_CARRIER = "phone_carrier",
     OTP = "otp",
-    MIXED = "mixed"
+    MIXED = "mixed",
+    CREDIT_BUREAU = "credit_bureau"
 }
 export declare enum UserIdentifierTypeEnum {
     EMAIL = "EMAIL",

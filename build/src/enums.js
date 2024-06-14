@@ -45,6 +45,7 @@ var CredentialVerificationMethodEnum;
     CredentialVerificationMethodEnum["PHONE_CARRIER"] = "phone_carrier";
     CredentialVerificationMethodEnum["OTP"] = "otp";
     CredentialVerificationMethodEnum["MIXED"] = "mixed";
+    CredentialVerificationMethodEnum["CREDIT_BUREAU"] = "credit_bureau";
 })(CredentialVerificationMethodEnum = exports.CredentialVerificationMethodEnum || (exports.CredentialVerificationMethodEnum = {}));
 var UserIdentifierTypeEnum;
 (function (UserIdentifierTypeEnum) {
