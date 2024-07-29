@@ -162,6 +162,7 @@ export interface BrandDto {
   isConciergeEnabled: boolean;
   isPartnerEnabled: boolean;
   primaryColor: string | null;
+  createdBy: string | null;
 }
 
 /**

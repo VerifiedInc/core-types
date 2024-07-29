@@ -145,6 +145,7 @@ export interface BrandDto {
     isConciergeEnabled: boolean;
     isPartnerEnabled: boolean;
     primaryColor: string | null;
+    createdBy: string | null;
 }
 /**
  * The presentation request object returned from the core service
